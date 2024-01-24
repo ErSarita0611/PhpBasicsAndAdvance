@@ -17,11 +17,11 @@ function formatting($phone){
     else { 
          
         // If given number is invalid 
-        echo "Invalid phone number <br>"; 
+        echo "Invalid phone number \n"; 
     } 
       
     // Print the given format 
-    echo("$format" . "<br>"); 
+    echo("$format" . "\n"); 
 } 
    
 // Call the function 
