@@ -1,0 +1,45 @@
+<?php
+
+// use cURL to Get JSON Data and Decode JSON Data
+
+// cURL: 
+
+// It stands for Client URL.
+// It is a command line tool for sending and getting files using URL syntax.
+// cURL allows communicating with other servers using HTTP, FTP, Telnet, and more.
+
+// Initializing curl
+$curl = curl_init();
+   
+// Sending GET request to reqres.in
+// server to get JSON data
+curl_setopt($curl, CURLOPT_URL, 
+    "https://reqres.in/api/users?page=2");
+   
+// Telling curl to store JSON
+// data in a variable instead
+// of dumping on screen
+curl_setopt($curl, 
+    CURLOPT_RETURNTRANSFER, true);
+   
+// Executing curl
+$response = curl_exec($curl);
+ 
+// Checking if any error occurs 
+// during request or not
+if($e = curl_error($curl)) {
+    echo $e;
+} else {
+     
+    // Decoding JSON data
+    $decodedData = 
+        json_decode($response, true); 
+         
+    // Outputting JSON data in
+    // Decoded form
+    var_dump($decodedData);
+}
+ 
+// Closing curl
+curl_close($curl);
+?>
